@@ -5,6 +5,7 @@ runs:
   using: composite
   steps:
     - run: |
+        ls
         chmod +x version-check.sh
         ./version-check.sh
       shell: bash

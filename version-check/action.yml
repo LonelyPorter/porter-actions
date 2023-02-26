@@ -5,6 +5,7 @@ runs:
   using: composite
   steps:
     - run: cd version-check
+      working-directory: version-check
       shell: bash
     - run: |
         ls

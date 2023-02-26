@@ -1,0 +1,9 @@
+name: version-check
+description: Check version if updated or not
+
+runs:
+  using: composite
+  steps:
+    - run:
+        ./version-check.sh
+      shell:  bash

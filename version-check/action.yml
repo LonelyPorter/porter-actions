@@ -4,8 +4,5 @@ description: Check version if updated or not
 runs:
   using: composite
   steps:
-    - run:
-        ls 
-        chmod +x version-check.sh
-        ./version-check.sh
-      shell:  bash
+    - run: chmod +x version-check.sh
+    - run: ./version-check.sh

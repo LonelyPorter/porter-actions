@@ -4,11 +4,11 @@ description: Check version if updated or not
 runs:
   using: composite
   steps:
-    - run: cd version-check
-      working-directory: version-check
+    - run: cd ./version-check
       shell: bash
     - run: |
         ls
         chmod +x version-check.sh
         ./version-check.sh
       shell: bash
+      working-directory: ./version-check

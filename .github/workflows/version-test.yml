@@ -1,0 +1,11 @@
+name: Version Actions Test Workflow
+on: [push]
+
+jobs:
+  version_check_test:
+    runs-on: ubuntu-latest
+    name: Version Check Action Testing
+    steps:
+      - uses: actions/checkout@v3
+      - uses: LonelyPorter/porter-actions@version
+      

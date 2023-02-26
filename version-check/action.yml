@@ -5,8 +5,17 @@ runs:
   using: composite
   steps:
     - run: |
-        pwd
+        echo "This current path is $(pwd)"
+        echo "Files under the current directory are:"
         ls
+      shell: bash
+    - run: |
+        if [-f project.toml]; then
+          cat project.toml
+        else
+          echo "project.toml file not exists! Check your project setup!"
+          exit 1
+        fi
       shell: bash
     - run: |
         git log -p HEAD^..HEAD -- project.toml | grep version || \

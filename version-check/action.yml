@@ -10,7 +10,7 @@ runs:
         ls
       shell: bash
     - run: |
-        if [-f project.toml]; then
+        if [ -f project.toml ]; then
           cat project.toml
         else
           echo "project.toml file not exists! Check your project setup!"

@@ -20,6 +20,15 @@ runs:
           exit 1
         fi
       shell: bash
+    - name: Git log
+      run: |
+        echo "Current branch is: "
+        git branch -vv
+
+        echo "Git log hisotry are: "
+        git log
+        
+      shell: bash
     - run: |
         git log -p HEAD^..HEAD -- project.toml | grep version || \
 

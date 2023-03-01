@@ -5,6 +5,8 @@ runs:
   using: composite
   steps:
     - uses: actions/checkout@v3
+      with:
+        fetch-depth: 2
     - run: |
         echo "This current path is $(pwd)"
         echo "Files under the current directory are:"

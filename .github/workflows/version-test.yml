@@ -7,8 +7,8 @@ jobs:
     name: Version Check Action Testing
     steps:
       - uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
-          fetch-depth: 2
+        # with:
+        #   ref: ${{ github.event.pull_request.head.sha }}
+        #   fetch-depth: 2
       - uses: LonelyPorter/porter-actions/version-check@version
 

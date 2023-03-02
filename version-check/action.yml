@@ -22,8 +22,10 @@ runs:
       uses: actions/download-artifact@v3
       with:
         name: version-check-script
-      run: |
+    - run: |
+        echo "After downloading the artifact:"
         ls -R
+      shell: basg
     - run: |
         if [ -f project.toml ]; then
           cat project.toml

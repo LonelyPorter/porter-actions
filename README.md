@@ -15,13 +15,9 @@ File looks like:
 
 Then put the following in your github actions workflow  
 ```yaml
-- uses: actions/checkout@v3
-  with:
-    ref: ${{ github.event.pull_request.head.sha }}
-    fetch-depth: 2
 - uses: LonelyPorter/porter-actions/version-check@version
 ```
-This will reference the last two commits in PR(branch) and compare the two to see if `project.toml` is being touched  
+This will reference the last two commits in PR(branch) and compare the two to see if `project.toml` is being touched (updated) 
 
 Basically, this requires you to version bump(change) at the newest commit before you do the merge in PR 
 

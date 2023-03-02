@@ -4,10 +4,11 @@ description: Check version if updated or not
 runs:
   using: composite
   steps:
-    - run: |
-        echo "Checking if there's any files in $(pwd): "
-        ls
-      shell: bash
+    - name: Publish files # this has the files of this repo
+      uses: actions/upload-artifact@v3
+      with:
+        name: version-check-script
+        path: version-check/version-check.py
     - uses: actions/checkout@v3
       with:
         ref: ${{ github.event.pull_request.head.sha }}
@@ -17,6 +18,12 @@ runs:
         echo "Files under the current directory are:"
         ls
       shell: bash
+    - name: Download artifact
+      uses: actions/download-artifact@v3
+      with:
+        name: version-check-script
+      run: |
+        ls -R
     - run: |
         if [ -f project.toml ]; then
           cat project.toml

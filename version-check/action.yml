@@ -25,7 +25,7 @@ runs:
     - run: |
         echo "After downloading the artifact:"
         ls -R
-      shell: basg
+      shell: bash
     - run: |
         if [ -f project.toml ]; then
           cat project.toml

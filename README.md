@@ -15,7 +15,7 @@ File looks like:
 
 Then put the following in your github actions workflow  
 ```yaml
-- uses: LonelyPorter/porter-actions/version-check
+- uses: LonelyPorter/porter-actions/version-check@main
 ```
 This will reference the last two commits in PR(branch) and compare the two to see if `project.toml` is being touched (updated) 
 

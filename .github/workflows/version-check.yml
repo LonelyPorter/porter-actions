@@ -1,7 +1,6 @@
 name: version-check
 run-name: Version Check
-on: 
-  push:
+on: [push]
     
 jobs:
   version-check:

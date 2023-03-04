@@ -1,0 +1,26 @@
+name: version-check
+description: Check version if updated or not
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/checkout@v3
+      with:
+        repository: LonelyPorter/porter-actions
+    - name: Publish files # this has the files of this repo
+      uses: actions/upload-artifact@v3
+      with:
+        name: version-check-scripts
+        path: version-check/version-check.sh
+    - uses: actions/checkout@v3
+      with:
+        ref: ${{ github.event.pull_request.head.sha }}
+        fetch-depth: 2
+    - name: Download artifact
+      uses: actions/download-artifact@v3
+      with:
+        name: version-check-scripts
+    - run: |
+        chmod +x ./version-check.sh
+        ./version-check.sh
+      shell: bash

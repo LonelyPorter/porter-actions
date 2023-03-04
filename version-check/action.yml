@@ -21,5 +21,7 @@ runs:
       uses: actions/download-artifact@v3
       with:
         name: version-check-scripts
-    - run: ./version-check.sh
+    - run: |
+        chmod +x ./version-check.sh
+        ./version-check.sh
       shell: bash

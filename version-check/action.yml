@@ -7,7 +7,7 @@ runs:
     - uses: actions/checkout@v3
       with:
         repository: LonelyPorter/porter-actions
-        ref: version
+        # ref: version
     - name: Publish files # this has the files of this repo
       uses: actions/upload-artifact@v3
       with:

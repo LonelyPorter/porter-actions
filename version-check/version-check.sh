@@ -5,7 +5,9 @@ echo "Files under the current directory are:"
 ls
 
 if [ -f project.toml ]; then
+  echo "project.toml exists: "
   cat project.toml
+  echo -e "\n"
 else
   echo "project.toml file not exists! Check your project setup!"
   exit 1

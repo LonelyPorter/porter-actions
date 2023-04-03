@@ -10,6 +10,32 @@ class Project:
         self.minor = version.split('.')[1]
         self.patch = version.split('.')[2]
 
+    def __gt__(self, other):
+        if self.major > other.major:
+            return True
+        elif self.major < other.major:
+            return False
+
+        if self.minor > other.minor:
+            return True
+        elif self.minor < other.minor:
+            return False
+
+        return self.patch > other.patch
+
+    def __lt__(self, other):
+        if self.major < other.major:
+            return True
+        elif self.major > other.major:
+            return False
+
+        if self.minor < other.minor:
+            return True
+        elif self.minor > other.minor:
+            return False
+
+        return self.patch < other.patch
+
 if __name__ == "__main__":
     with open('project.toml', mode='rb') as fp:
         project = tb.load(fp)

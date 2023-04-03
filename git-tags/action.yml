@@ -6,9 +6,9 @@ runs:
   steps:
     - uses: actions/checkout@v3
       with:
-        repository: LonelyPorter/porter-actions@action-tag
+        repository: LonelyPorter/porter-actions
     - name: Publish files
-      uses: actions/uploda-artifact@v3
+      uses: actions/upload-artifact@v3
       with:
         name: tag-scripts
         path: git-tags/*

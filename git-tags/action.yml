@@ -17,6 +17,8 @@ runs:
         ref: ${{ github.event.pull_request.head.sha }}
         fetch-depth: 2
     - uses: actions/setup-python@v4
+      with:
+        python-version: '3.11' # for TOML (tomlib)
     - name: Download artifact
       uses: actions/download-artifact@v3
       with:

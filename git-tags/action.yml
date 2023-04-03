@@ -1,0 +1,27 @@
+name: git-tags
+description: Apply tags to the commit when PR merge
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/checkout@v3
+      with:
+        repository: LonelyPorter/porter-actions
+    - name: Publish files
+      uses: actions/uploda-artifact@v3
+      with:
+        name: tag-scripts
+        path: git-tags/*
+    - uses: actions/checkout@v3
+      with:
+        ref: ${{ github.event.pull_request.head.sha }}
+        fetch-depth: 2
+    - uses: actions/setup-python@v4
+    - name: Download artifact
+      uses: actions/download-artifact@v3
+      with:
+        name: tag-scripts
+    - run: |
+        chmod +x ./tag.py
+        ./tag.py
+      shell: bash

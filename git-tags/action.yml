@@ -24,6 +24,8 @@ runs:
       with:
         name: tag-scripts
     - run: |
+        which python
+        which python3
         chmod +x ./tag.py
-        ./tag.py
+        python tag.py
       shell: bash

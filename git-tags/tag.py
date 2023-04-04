@@ -1,5 +1,3 @@
-#!/usr/bin/python
-
 import tomllib as tb
 import subprocess as sp
 

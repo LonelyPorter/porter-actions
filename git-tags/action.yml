@@ -32,5 +32,5 @@ runs:
           echo "New tag created!"
         else
           echo "No new tag being created!"
-          exit(1)     
+          exit 1    
       shell: bash

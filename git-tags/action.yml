@@ -1,0 +1,37 @@
+name: git-tags
+description: Apply tags to the commit when PR merge
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/checkout@v3
+      with:
+        repository: LonelyPorter/porter-actions
+    - name: Publish files
+      uses: actions/upload-artifact@v3
+      with:
+        name: tag-scripts
+        path: git-tags/*
+    - uses: actions/checkout@v3
+      with:
+        ref: ${{ github.event.pull_request.head.sha }}
+        fetch-depth: 2
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.11' # for TOML (tomlib)
+    - name: Download artifact
+      uses: actions/download-artifact@v3
+      with:
+        name: tag-scripts
+    - run: |
+        initial_tags=$(git tag)
+        python tag.py
+        updated_tags=$(git tag)
+
+        if [[ $initial_tags != $updated_tags ]]; then
+          echo "New tag created!"
+        else
+          echo "No new tag being created!"
+          exit 1
+        fi    
+      shell: bash

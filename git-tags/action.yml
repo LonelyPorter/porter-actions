@@ -24,6 +24,13 @@ runs:
       with:
         name: tag-scripts
     - run: |
+        initial_tags=$(git tag)
         python tag.py
-        git tag --list
+        updated_tags=$(git tag)
+
+        if [[ $initial_tags != $updated_tags ]]; then
+          echo "New tag created!"
+        else
+          echo "No new tag being created!"
+          exit(1)     
       shell: bash

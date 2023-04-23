@@ -64,6 +64,5 @@ if __name__ == "__main__":
     print(f"Current Version = Previous Version: {now_p == last_p}")
     print(f"Current Version < Previous Version: {now_p < last_p}")
 
-    # if (now_p > last_p):
-    #     sp.check_output(["git", "tag", now_p])
-    sp.check_output(["git", "tag", str(now_p)])
+    if (now_p > last_p):
+        sp.check_output(["git", "tag", str(now_p)])

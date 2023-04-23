@@ -66,4 +66,4 @@ if __name__ == "__main__":
 
     # if (now_p > last_p):
     #     sp.check_output(["git", "tag", now_p])
-    sp.check_output(["git", "tag", now_p])
+    sp.check_output(["git", "tag", str(now_p)])

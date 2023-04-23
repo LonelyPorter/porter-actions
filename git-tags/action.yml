@@ -25,4 +25,5 @@ runs:
         name: tag-scripts
     - run: |
         python tag.py
+        git tag --list
       shell: bash

@@ -39,6 +39,9 @@ class Project:
         return self.major == other.major and \
             self.minor == other.minor and \
             self.patch == other.patch
+    
+    def __str__(self) -> str:
+        return '.'.join([self.major, self.major, self.patch])
 
 if __name__ == "__main__":
     with open('project.toml', mode='rb') as fp:
@@ -56,4 +59,7 @@ if __name__ == "__main__":
     version = project['Project']['version']
     last_p = Project(name, version)
     
-    print(now_p > last_p, now_p == last_p)
+    print(f"The current version is: {now_p}, the previous version is {last_p}")
+    print(f"Current Version > Previous Version: {now_p > last_p}")
+    print(f"Current Version = Previous Version: {now_p == last_p}")
+    print(f"Current Version < Previous Version: {now_p < last_p}")

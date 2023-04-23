@@ -41,7 +41,7 @@ class Project:
             self.patch == other.patch
     
     def __str__(self) -> str:
-        return '.'.join([self.major, self.major, self.patch])
+        return '.'.join([self.major, self.minor, self.patch])
 
 if __name__ == "__main__":
     with open('project.toml', mode='rb') as fp:
